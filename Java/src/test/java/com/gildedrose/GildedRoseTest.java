@@ -31,6 +31,14 @@ class GildedRoseTest {
     }
 
     @Test
+    void backStagePassCantGoOverFifty() {
+        Item[] items = new Item[]{new Item(GildedRose.BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, 1, 50)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(50, app.items[0].quality);
+    }
+
+    @Test
     void backStagePassIncreasesByTwoAtTenDays() {
         Item[] items = new Item[]{new Item(GildedRose.BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, 10, 10)};
         GildedRose app = new GildedRose(items);
